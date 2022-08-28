@@ -1,0 +1,17 @@
+name: "Wait on lightsail container"
+description: "Blocks workflow until a specified lightsail container deployment has completed"
+inputs:
+  container-service:
+    description: "The container service to wait on"
+    required: true
+  timeout:
+    description: "The maximum time to wait for the deployment to complete (in seconds)"
+    required: false
+    default: 300
+  interval:
+    description: "Period between checks (is seconds)"
+    required: false
+    default: 10
+runs:
+  using: "node16"
+  main: "dist/index.js"
